@@ -34,7 +34,7 @@ def on_disconnect():
 @socketio.on("message")
 def on_message(msg):
     global num_to_guess
-    # for debugging to see if it remained the same througout connection
+    # for debugging to see if it remained the same throughout connection
     print num_to_guess
     if int(msg) == num_to_guess:
         send("You've guessed the correct number! Well done :)")
