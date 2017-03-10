@@ -2,14 +2,16 @@ $(() => {
 
   function updateThread(msg, isServer) {
     let threadHTML = $("#thread").html();
+    let response;
     if (isServer) {
-      threadHTML += "<p>Server: " + msg + "</p>";
+      response = "Server: " + msg;
     }
     else {
-      threadHTML += "<p>You: " + msg + "</p>";
+      response = "You: " + msg;
     }
+    let formattedResponse = $("<p></p>").text(response);
 
-    $("#thread").html(threadHTML);
+    $("#thread").append(formattedResponse);
   }
   
   var socket = io();
