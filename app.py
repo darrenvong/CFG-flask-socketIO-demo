@@ -1,3 +1,4 @@
+import os
 from random import randrange
 
 from flask import Flask, render_template
@@ -51,4 +52,7 @@ def on_restart():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host="0.0.0.0", debug=True)
+    if 'PORT' in os.environ: # running on Heroku
+        socketio.run(app, host="0.0.0.0", port=os.environ['PORT'])
+    else: # runing locally
+        socketio.run(app, debug=True)
