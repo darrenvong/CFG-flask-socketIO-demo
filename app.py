@@ -5,7 +5,7 @@ from flask import Flask, render_template, session
 from flask_socketio import SocketIO, send, emit
 
 app = Flask(__name__)
-app.secret_key = "guess_the_number"
+app.secret_key = "guess_the_number" # for demo purpose only. This should really be kept secret to ensure sensitive data is kept secure!
 socketio = SocketIO(app)
 
 def start_game():
